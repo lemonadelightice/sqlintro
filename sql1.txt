@@ -7,8 +7,8 @@ SELECT * FROM Products LIMIT 5;
 Paste your SQL statement below:
 
 SELECT *
-FROM Customer
-ORDER BY
+FROM Customers
+ORDER BY CustomerName
 LIMIT 10;
 
 2. Use an SQL Select statement to retrieve the names and prices for all products that cost less than $20.
@@ -22,17 +22,17 @@ WHERE Price < 20;
 
 SELECT FirstName, LastName
 FROM Employees
-WHERE FirstName LIKE 'C%';
+WHERE LastName LIKE 'C%';
 
 
 4. Retrieve the order ID and customer name for all orders where the customer name starts with A.
 Here you will have to do a join of the Orders table and the Customers table.  Paste your SQL
 statement below.
 
-SELECT CustomerName, OrderID
-FROM Customers
-JOIN Orders 
-    ON Customers.CustomerID = Orders.CustomerID
+SELECT c.CustomerName, o.OrderID
+FROM Customers c
+JOIN Orders o
+    ON c.CustomerID = o.CustomerID
 WHERE CustomerName LIKE 'A%';
 
 
@@ -40,11 +40,11 @@ WHERE CustomerName LIKE 'A%';
 that not every customer has an order, but be sure that you include those customers without orders
 in the results of the query.  Paste your SQL statement below.
 
-SELECT CustomerName, OrderID
-FROM Customers
-LEFT JOIN Orders 
-    ON Customers.CustomerID = Orders.CustomerID
-ORDER BY CustomerName;
+SELECT c.CustomerName, o.OrderID
+FROM Customers c
+LEFT JOIN Orders o
+    ON c.CustomerID = o.CustomerID
+ORDER BY c.CustomerName;
 
 
 6. Retrieve the list of customer names for customers that have no orders.  There are two ways to do this
